@@ -1,12 +1,12 @@
 if(xcheevos === undefined) var xcheevos = {};
-xcheevos.name = 'Cheevo300';
-xcheevos.version = '1.031 BETA';
+xcheevos.name = '300Cheevos';
+xcheevos.version = '1.032 BETA';
 xcheevos.GameVersion = '2.048';
 
 xcheevos.launch = function() {
 	xcheevos.init = function() {
-		if (Game.prefs.popups) Game.Popup('Cheevo300 v' + xcheevos.version + ' loaded!');
-		else Game.Notify('Cheevo300','Cheevo300 v' + xcheevos.version + ' loaded!', 'https://github.com/SpaceyyyBoyo/300Cheevos/blob/main/300cheevoIcon.png?raw=true', 1,1);
+		if (Game.prefs.popups) Game.Popup('300Cheevos v' + xcheevos.version + ' loaded!');
+		else Game.Notify('300Cheevos','300Cheevos v' + xcheevos.version + ' loaded!', 'https://github.com/SpaceyyyBoyo/300Cheevos/blob/main/300cheevoIcon.png?raw=true', 1,1);
 		xcheevos.Note = Game.NotesById[Game.noteId - 1];
 		xcheevos.Note.life = 3000;
 		xcheevos.AddCheevos();
@@ -47,26 +47,58 @@ xcheevos.launch = function() {
 			last = i;
 		}
 
+		xcheevos.Level5Achievements = {};
+		new Game.Achievement('placeholder13',loc("Reach level <b>5</b> cursors.")+'<q>Put your click away Waltuh.</q>',[1,0,icon]);
+		new Game.Achievement('Life alert',loc("Reach level <b>5</b> grandmas.")+'<q>I\'ve fallen and I can\'t get up!</q>',[1,8,icon]);
+		new Game.Achievement('placeholder15',loc("Reach level <b>5</b> farms.")+'<q>placeholder</q>',[2,2,icon]);
+		new Game.Achievement('Just a little bit mine',loc("Reach level <b>5</b> mines.")+'<q>Hand me my shovel, I\'m going in!</q>',[1,1,icon]);
+		new Game.Achievement('placeholder17',loc("Reach level <b>5</b> factories.")+'<q>placeholder</q>',[1,9,icon]);
+		new Game.Achievement('placeholder18',loc("Reach level <b>5</b> banks.")+'<q>placeholder</q>',[1,5,icon]);
+		new Game.Achievement('Temple run',loc("Reach level <b>5</b> temples.")+'<q>Demon monkeys would like to try your cookies.</q>',[1,13,icon]);
+		new Game.Achievement('Gee wiz!',loc("Reach level <b>5</b> wizard towers.")+'<q>placeholder</q>',[2,7,icon]);
+		new Game.Achievement('placeholder21',loc("Reach level <b>5</b> shipments.")+'<q>placeholder</q>',[2,3,icon]);
+		new Game.Achievement('Just basic chemistry',loc("Reach level <b>5</b> alchemy labs.")+'<q>I\'m glad it\'s acceptable.</q>',[1,2,icon]);
+		new Game.Achievement('You are a horrible person',loc("Reach level <b>5</b> portals.")+'<q>We weren\'t even testing for that.</q>',[1,10,icon]);
+		new Game.Achievement('Dimension number four',loc("Reach level <b>5</b> time machines.")+'<q>Ooh, live the dream with a time machine.</q>',[2,4,icon]);
+		new Game.Achievement('placeholder25',loc("Reach level <b>5</b> antimatter condensers.")+'<q>placeholder</q>',[1,12,icon]);
+		new Game.Achievement('Roy G. BIV',loc("Reach level <b>5</b> prisms.")+'<q>Do you know your colors?</q>',[2,6,icon]);
+		new Game.Achievement('141 and 2/3 chance of winnin\'',loc("Reach level <b>5</b> chancemakers.")+'<q>The numbers don\'t lie, and they spell \'disaster\' for you.</q>',[2,0,icon]);
+		new Game.Achievement('placeholder28',loc("Reach level <b>5</b> fractal engines.")+'<q>placeholder</q>',[2,8,icon]);
+		new Game.Achievement('placeholder29',loc("Reach level <b>5</b> javascript consoles.")+'<q>placeholder</q>',[1,7,icon]);
+		new Game.Achievement('Dimensional merge',loc("Reach level <b>5</b> idleverses.")+'<q>Go out and bake to the extreme!</q>',[2,1,icon]);
+		new Game.Achievement('Don\'t think too hard about it.',loc("Reach level <b>5</b> cortex bakers.")+'<q>placeholder</q>',[2,9,icon]);
+		for(var i in Game.AchievementsById) {
+			if(i >= num) {
+				var me = Game.AchievementsById[i];
+				if(i > last) {
+					me.ddesc = me.desc;
+					me.order = order+100;
+					xcheevos.Level5Achievements[i-last]=me;
+				}
+			}
+			last = i;
+		}
+
 		xcheevos.Level12Achievements = {};
-		new Game.Achievement('placeholder13',loc("Reach level <b>12</b> cursors.")+'<q>Put your click away Waltuh.</q>',[1,0,icon]);
-		new Game.Achievement('placeholder14',loc("Reach level <b>12</b> grandmas.")+'<q>placeholder</q>',[1,8,icon]);
-		new Game.Achievement('placeholder15',loc("Reach level <b>12</b> farms.")+'<q>placeholder</q>',[2,2,icon]);
-		new Game.Achievement('Just a little bit mine',loc("Reach level <b>12</b> mines.")+'<q>...well, better than the alternative.</q>',[1,1,icon]);
-		new Game.Achievement('placeholder17',loc("Reach level <b>12</b> factories.")+'<q>placeholder</q>',[1,9,icon]);
-		new Game.Achievement('placeholder18',loc("Reach level <b>12</b> banks.")+'<q>placeholder</q>',[1,5,icon]);
-		new Game.Achievement('placeholder19',loc("Reach level <b>12</b> temples.")+'<q>placeholder</q>',[1,13,icon]);
-		new Game.Achievement('placeholder20',loc("Reach level <b>12</b> wizard towers.")+'<q>placeholder</q>',[2,7,icon]);
-		new Game.Achievement('placeholder21',loc("Reach level <b>12</b> shipments.")+'<q>placeholder</q>',[2,3,icon]);
-		new Game.Achievement('placeholder22',loc("Reach level <b>12</b> alchemy labs.")+'<q>placeholder</q>',[1,2,icon]);
-		new Game.Achievement('placeholder23',loc("Reach level <b>12</b> portals.")+'<q>placeholder</q>',[1,10,icon]);
-		new Game.Achievement('placeholder24',loc("Reach level <b>12</b> time machines.")+'<q>placeholder</q>',[2,4,icon]);
-		new Game.Achievement('placeholder25',loc("Reach level <b>12</b> antimatter condensers.")+'<q>placeholder</q>',[1,12,icon]);
-		new Game.Achievement('placeholder26',loc("Reach level <b>12</b> prisms.")+'<q>placeholder</q>',[2,6,icon]);
-		new Game.Achievement('placeholder27',loc("Reach level <b>12</b> chancemakers.")+'<q>placeholder</q>',[2,0,icon]);
-		new Game.Achievement('placeholder28',loc("Reach level <b>12</b> fractal engines.")+'<q>placeholder</q>',[2,8,icon]);
-		new Game.Achievement('placeholder29',loc("Reach level <b>12</b> javascript consoles.")+'<q>placeholder</q>',[1,7,icon]);
-		new Game.Achievement('placeholder30',loc("Reach level <b>12</b> idleverses.")+'<q>placeholder</q>',[2,1,icon]);
-		new Game.Achievement('placeholder31',loc("Reach level <b>12</b> cortex bakers.")+'<q>placeholder</q>',[2,9,icon]);
+		new Game.Achievement('placeholder32',loc("Reach level <b>12</b> cursors.")+'<q>placeholder</q>',[3,0,icon]);
+		new Game.Achievement('Pull the plug',loc("Reach level <b>12</b> grandmas.")+'<q>we will live on...</q>',[3,8,icon]);
+		new Game.Achievement('placeholder34',loc("Reach level <b>12</b> farms.")+'<q>placeholder</q>',[4,2,icon]);
+		new Game.Achievement('Minesweep',loc("Reach level <b>12</b> mines.")+'<q>placeholder</q>',[3,1,icon]);
+		new Game.Achievement('placeholder36',loc("Reach level <b>12</b> factories.")+'<q>placeholder</q>',[3,9,icon]);
+		new Game.Achievement('placeholder37',loc("Reach level <b>12</b> banks.")+'<q>placeholder</q>',[3,5,icon]);
+		new Game.Achievement('placeholder38',loc("Reach level <b>12</b> temples.")+'<q>placeholder</q>',[3,13,icon]);
+		new Game.Achievement('placeholder39',loc("Reach level <b>12</b> wizard towers.")+'<q>placeholder</q>',[4,7,icon]);
+		new Game.Achievement('placeholder40',loc("Reach level <b>12</b> shipments.")+'<q>placeholder</q>',[4,3,icon]);
+		new Game.Achievement('Explodatorium',loc("Reach level <b>12</b> alchemy labs.")+'<q>Hee hee hee!</q>',[3,2,icon]);
+		new Game.Achievement('placeholder42',loc("Reach level <b>12</b> portals.")+'<q>placeholder</q>',[3,10,icon]);
+		new Game.Achievement('Scientific impossibility',loc("Reach level <b>12</b> time machines.")+'<q>It would violate the second law of thermodynamics.</q>',[4,4,icon]);
+		new Game.Achievement('Antimatter dimensions',loc("Reach level <b>12</b> antimatter condensers.")+'<q>Antimatter cookies have been confirmed to not exist, whoever claims that, stop.</q>',[3,12,icon]);
+		new Game.Achievement('placeholder45',loc("Reach level <b>12</b> prisms.")+'<q>placeholder</q>',[4,6,icon]);
+		new Game.Achievement('Coin flip',loc("Reach level <b>12</b> chancemakers.")+'<q>Heads I win, tails you lose.</q>',[4,0,icon]);
+		new Game.Achievement('placeholder47',loc("Reach level <b>12</b> fractal engines.")+'<q>placeholder</q>',[4,8,icon]);
+		new Game.Achievement('placeholder48',loc("Reach level <b>12</b> javascript consoles.")+'<q>placeholder</q>',[3,7,icon]);
+		new Game.Achievement('Cookieverse of craziness',loc("Reach level <b>12</b> idleverses.")+'<q>placeholder</q>',[4,1,icon]);
+		new Game.Achievement('placeholder50',loc("Reach level <b>12</b> cortex bakers.")+'<q>placeholder</q>',[4,9,icon]);
 		for(var i in Game.AchievementsById) {
 			if(i >= num) {
 				var me = Game.AchievementsById[i];
@@ -74,38 +106,6 @@ xcheevos.launch = function() {
 					me.ddesc = me.desc;
 					me.order = order+100;
 					xcheevos.Level12Achievements[i-last]=me;
-				}
-			}
-			last = i;
-		}
-
-		xcheevos.Level14Achievements = {};
-		new Game.Achievement('placeholder32',loc("Reach level <b>14</b> cursors.")+'<q>placeholder</q>',[3,0,icon]);
-		new Game.Achievement('placeholder33',loc("Reach level <b>14</b> grandmas.")+'<q>placeholder</q>',[3,8,icon]);
-		new Game.Achievement('placeholder34',loc("Reach level <b>14</b> farms.")+'<q>placeholder</q>',[4,2,icon]);
-		new Game.Achievement('placeholder35',loc("Reach level <b>14</b> mines.")+'<q>placeholder</q>',[3,1,icon]);
-		new Game.Achievement('placeholder36',loc("Reach level <b>14</b> factories.")+'<q>placeholder</q>',[3,9,icon]);
-		new Game.Achievement('placeholder37',loc("Reach level <b>14</b> banks.")+'<q>placeholder</q>',[3,5,icon]);
-		new Game.Achievement('placeholder38',loc("Reach level <b>14</b> temples.")+'<q>placeholder</q>',[3,13,icon]);
-		new Game.Achievement('placeholder39',loc("Reach level <b>14</b> wizard towers.")+'<q>placeholder</q>',[4,7,icon]);
-		new Game.Achievement('placeholder40',loc("Reach level <b>14</b> shipments.")+'<q>placeholder</q>',[4,3,icon]);
-		new Game.Achievement('placeholder41',loc("Reach level <b>14</b> alchemy labs.")+'<q>placeholder</q>',[3,2,icon]);
-		new Game.Achievement('placeholder42',loc("Reach level <b>14</b> portals.")+'<q>placeholder</q>',[3,10,icon]);
-		new Game.Achievement('placeholder43',loc("Reach level <b>14</b> time machines.")+'<q>placeholder</q>',[4,4,icon]);
-		new Game.Achievement('placeholder44',loc("Reach level <b>14</b> antimatter condensers.")+'<q>placeholder</q>',[3,12,icon]);
-		new Game.Achievement('placeholder45',loc("Reach level <b>14</b> prisms.")+'<q>placeholder</q>',[4,6,icon]);
-		new Game.Achievement('placeholder46',loc("Reach level <b>14</b> chancemakers.")+'<q>placeholder</q>',[4,0,icon]);
-		new Game.Achievement('placeholder47',loc("Reach level <b>14</b> fractal engines.")+'<q>placeholder</q>',[4,8,icon]);
-		new Game.Achievement('placeholder48',loc("Reach level <b>14</b> javascript consoles.")+'<q>placeholder</q>',[3,7,icon]);
-		new Game.Achievement('placeholder49',loc("Reach level <b>14</b> idleverses.")+'<q>placeholder</q>',[4,1,icon]);
-		new Game.Achievement('placeholder50',loc("Reach level <b>14</b> cortex bakers.")+'<q>placeholder</q>',[4,9,icon]);
-		for(var i in Game.AchievementsById) {
-			if(i >= num) {
-				var me = Game.AchievementsById[i];
-				if(i > last) {
-					me.ddesc = me.desc;
-					me.order = order+100;
-					xcheevos.Level14Achievements[i-last]=me;
 				}
 			}
 			last = i;
@@ -119,7 +119,7 @@ xcheevos.launch = function() {
 		new Game.Achievement('Wrinkledominus',loc("Burst <b>10,000</b> wrinklers.")+'<q>Is this not genocide?</q>',[6,4,icon]);
 		new Game.Achievement('Who\'s a good boy?',loc("Click a wrinkler <b>15 times</b> without bursting it.")+'<q>The grandmas remind you that the Wrinkler will never threaten to bite you and, in fact, cannot speak.</q>',[6,6,icon]);
 		new Game.Achievement('In the wrink of an eye',loc("Pop a wrinkler before it reaches the big cookie.")+'<q>It didn\'t even do anything!</q>',[6,8,icon]);
-		new Game.Achievement('Spirobranchus giganteus',loc("Pop a wrinkler with a Santa hat.")+'<q>Also known as the Christmas worm!</q>',[6,7,icon]);
+		new Game.Achievement('Spirobranchus giganteus',loc("Pop a wrinkler with a Santa hat.")+'<q>Also known as the Christmas tree worm!</q>',[6,7,icon]);
 		for(var i in Game.AchievementsById) {
 			if(i >= num) {
 				var me = Game.AchievementsById[i];
@@ -171,11 +171,11 @@ xcheevos.launch = function() {
 			}
 			if(count >= Game.Tiers[t].upgrades.length && Game.Upgrades[Game.Tiers[t].unshackleUpgrade].bought==1) { Game.Win(xcheevos.TieredAchievements[t-1].name); } //Check for if all upgrades are bought of that flavor along with checking for if it has been unshackled
 			for(var i in Game.ObjectsById) {
-				if(Game.ObjectsById[i].level >= 12) { Game.Win(xcheevos.Level12Achievements[i]); }
-				console.log(xcheevos.Level12Achievements[i]);
+				if(Game.ObjectsById[i].level >= 5) { Game.Win(xcheevos.Level5Achievements[i]); }
+				console.log(xcheevos.Level15Achievements[i]);
 			}
 			for(var i in Game.ObjectsById) {
-				if(Game.ObjectsById[i].level >= 14) { Game.Win(xcheevos.Level14Achievements[i]); }
+				if(Game.ObjectsById[i].level >= 12) { Game.Win(xcheevos.Level12Achievements[i]); }
 			}
 			if (Game.wrinklersPopped>=500) Game.Win('Goopwiper');
 			if (Game.wrinklersPopped>=1000) Game.Win('Humidsqueezer');
